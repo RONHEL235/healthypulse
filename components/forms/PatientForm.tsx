@@ -9,6 +9,7 @@ import { Form } from "@/components/ui/form"
 import CustomFormField from "../CustomFormField"
 import SubmitButton from "../SubmitButton"
 import { useState } from "react"
+import { UserFormValidation } from "@/lib/validation"
 
 export enum FormFieldType {
     INPUT = "input",
@@ -23,16 +24,16 @@ export enum FormFieldType {
 const PatientForm = () => {
   const [isLoading, setIsLoading] = useState(false)
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<z.infer<typeof UserFormValidation>>({
+    resolver: zodResolver(UserFormValidation),
     defaultValues: {
       name: "",
-      enail: "",
+      email: "",
       phone: "",
     },
   })
  
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  function onSubmit(values: z.infer<typeof UserFormValidation>) {
     console.log(values)
   }
   return (
