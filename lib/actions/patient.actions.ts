@@ -1,3 +1,3 @@
 export const createUser = async (user: CreateUserParams) => {
-    //creating a form
+    //creating a form using inputs created in appwrite.
 }
